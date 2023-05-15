@@ -167,6 +167,30 @@
 
 	<OptionMenu name="reset" text={$t('menu.factoryReset')} />
 
+	<h2>Disclaimer :</h2>
+	<div class="notes">
+		<ol>
+			<li>This is a modified version of Genshin Impact Wish Simulator by jaihysc.
+				The original is taken from
+				<a
+					on:click|stopPropagation
+					href="https://github.com/AguzzTN54/Genshin-Impact-Wish-Simulator"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+				Here
+				</a>
+				.
+			</li>
+			<li>
+				{$t('fanmade')}
+			</li>
+			<li>
+				{$t('disclaimer')}
+			</li>
+		</ol>
+	</div>
+
 	<h2>Notes :</h2>
 	<div class="notes">
 		<ol>

@@ -24,7 +24,6 @@
 	import { beginner } from '$lib/data/banners/beginner.json';
 
 	// Components
-	import Disclaimer from '$lib/components/utility/Disclaimer.svelte';
 	import MainWish from '$lib/components/wish/MainWish.svelte';
 	import Toast from '$lib/components/utility/Toast.svelte';
 
@@ -120,25 +119,6 @@
 	$: switchBanner($patchVersion, $bannerPhase);
 	$: showBeginnerCheck($showBeginner);
 
-	onMount(async () => {
-		await importHelper();
-		animateBG();
-		importChunks();
-		isMount = true;
-		setBannerVersionAndPhase();
-		window.addEventListener('blur', () => playSfx('wishBacksound', { paused: isMount }));
-		window.addEventListener('focus', () => {
-			if (audioActive) return playSfx('wishBacksound');
-			else return;
-		});
-
-		window.addEventListener('popstate', (e) => {
-			if (e.state.page) return;
-			if ($pageActive === 'index') return;
-			pageActive.set('index');
-		});
-	});
-
 	// Milestone Bonus screen
 	let showObtained = false;
 	let obtainedItems = {};
@@ -164,19 +144,6 @@
 	};
 
 	let welkinCheckin = false;
-	let showDisclaimer = true;
-
-	// Announcement - Notice - Disclaimer
-	const closeDisclaimer = () => {
-		bannerActive.set(0);
-		showDisclaimer = false;
-
-		const { remaining, diff, latestCheckIn } = localWelkin.getData();
-		welkinCheckin = remaining > 0 && remaining - diff >= 0 && diff > 0;
-		if (latestCheckIn) localWelkin.checkin();
-		if (!welkinCheckin) return backsound.set(true);
-	};
-	setContext('closeDisclaimer', closeDisclaimer);
 
 	// Welkin
 	const closeWelkin = () => (welkinCheckin = false);
@@ -198,6 +165,33 @@
 		playSfx(!showChat ? 'click' : 'close');
 	};
 	setContext('chatToggle', chatToggle);
+
+	onMount(async () => {
+		await importHelper();
+		animateBG();
+		importChunks();
+		isMount = true;
+		setBannerVersionAndPhase();
+		window.addEventListener('blur', () => playSfx('wishBacksound', { paused: isMount }));
+		window.addEventListener('focus', () => {
+			if (audioActive) return playSfx('wishBacksound');
+			else return;
+		});
+
+		window.addEventListener('popstate', (e) => {
+			if (e.state.page) return;
+			if ($pageActive === 'index') return;
+			pageActive.set('index');
+		});
+
+		// Setup main page
+		bannerActive.set(0);
+
+		const { remaining, diff, latestCheckIn } = localWelkin.getData();
+		welkinCheckin = remaining > 0 && remaining - diff >= 0 && diff > 0;
+		if (latestCheckIn) localWelkin.checkin();
+		if (!welkinCheckin) backsound.set(true);
+	});
 </script>
 
 {#if showToast}
@@ -215,7 +209,6 @@
 {#if CHATROOM && chatLoaded}
 	<svelte:component this={Chats} show={showChat} />
 {/if}
-<svelte:component this={Disclaimer} show={showDisclaimer} />
 <svelte:component this={WelkinCheckin} show={welkinCheckin} />
 
 {#if isAnimatedBG}
