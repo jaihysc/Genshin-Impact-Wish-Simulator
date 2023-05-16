@@ -239,7 +239,6 @@
 		"resetPrompt": "Esta ação também vai remover todos os Personagens e Armas relacionadas ao \"{bannerName}\" Banner do Inventário. <br /> Você tem certeza de que deseja resetar ?",
 		"resetSuccess": "Resetado com Sucesso",
 		"selectWish": "Tipo de Oração",
-		"disclaimer": "Nós nunca salvamos dados na nuvem. Todos os dados são guardados em IndexedDB, ou seja, no armazenamento do seu navegador. Os dados não serão deletados a menos que você delete manualmente, além de usar o botão 'Limpar' ou limpar os dados de navegação.",
 		"currentPity": "Pity atual :",
 		"totalPull": "Total de orações:",
 		"totalSpend": "Total Gasto :",

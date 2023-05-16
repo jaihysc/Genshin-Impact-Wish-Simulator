@@ -66,7 +66,6 @@
 <Title banner="history" />
 <SelectBanner {banner} />
 <div class="container">
-	<p class="v2">{$t('history.disclaimer')}</p>
 	<div class="row">
 		<Report {dataLength} {banner} />
 		<Filter {filterBy} />
@@ -77,10 +76,6 @@
 <Pagination dataLength={filteredDataLength} {itemPerPage} {activepage} />
 
 <style>
-	p {
-		padding: 1rem 0;
-	}
-
 	/* V2 */
 	.row {
 		display: flex;
@@ -88,12 +83,6 @@
 
 	.container {
 		height: 100%;
-		overflow: auto;
-	}
-	p.v2 {
-		color: #8e8e8e;
-		line-height: 120%;
-		padding: calc(0.008 * var(--content-width)) 0;
-		font-size: calc(0.014 * var(--content-width));
+		overflow: hidden;
 	}
 </style>
