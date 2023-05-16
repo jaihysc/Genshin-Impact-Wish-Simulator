@@ -6,8 +6,6 @@
 	import Details from './_details.svelte';
 	import { getBannerName } from '$lib/helpers/nameText';
 
-	export let tplVersion;
-
 	$: banner = $bannerList[$bannerActive].type;
 
 	let items = [];
@@ -143,7 +141,6 @@
 	<div>{$t('waiting')}...</div>
 {:then data}
 	<Details
-		{tplVersion}
 		data={{ banner, bannerTitle, featured, items }}
 		drops={{ drop3star, drop4star, drop5star }}
 	/>

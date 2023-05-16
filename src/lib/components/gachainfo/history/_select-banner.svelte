@@ -5,7 +5,6 @@
 	import { assets, bannerList } from '$lib/store/stores';
 	import Reset from './_reset.svelte';
 
-	export let v2 = false;
 	export let banner;
 	let showSelectList = false;
 
@@ -22,22 +21,17 @@
 	};
 </script>
 
-<div class="selectType" class:v2>
+<div class="selectType v2">
 	<div
-		style={v2 ? `background-image: url(${$assets['history-select-bg.webp']})` : ''}
-		class="wish-type"
-		class:v2
+		style={`background-image: url(${$assets['history-select-bg.webp']})`}
+		class="wish-type v2"
 	>
 		<span> {$t('history.selectWish')} </span>
 		<div class="select-box">
 			<div class="selected" on:click={() => (showSelectList = !showSelectList)}>
 				<span>{@html $t(`wish.banner.${banner}`)}</span>
 
-				{#if v2}
-					<span class="arrow icon {showSelectList ? 'up' : 'down'}" />
-				{:else}
-					<i class="arrow gi-caret-{showSelectList ? 'up' : 'down'}" />
-				{/if}
+				<span class="arrow icon {showSelectList ? 'up' : 'down'}" />
 			</div>
 
 			{#if showSelectList}
@@ -57,11 +51,9 @@
 		</div>
 	</div>
 
-	{#if v2}
-		<div class="reset">
-			<Reset {banner} v2 />
-		</div>
-	{/if}
+	<div class="reset">
+		<Reset {banner} />
+	</div>
 </div>
 
 <style>

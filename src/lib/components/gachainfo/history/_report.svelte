@@ -5,7 +5,6 @@
 	import { userCurrencies } from '$lib/helpers/currencies';
 
 	export let banner = '';
-	export let v2 = false;
 	export let dataLength = 0;
 
 	let pity4, pity5, totalSpend;
@@ -18,30 +17,18 @@
 	}
 </script>
 
-{#if v2}
-	<div class="cell">
-		{$t('history.currentPity')} &nbsp; <strong class="star5"> {pity5} </strong> &nbsp; - &nbsp;
-		<strong class="star4"> {pity4} </strong>
-		<br />
-		{$t('history.totalPull')} <span class="lighted"> <strong> {dataLength} </strong> </span>
-	</div>
-	<div class="cell">
-		{$t('history.totalSpend')}
-		<strong><span class="lighted"> {dataLength * 160}</span> {$t('shop.item.primogem')}</strong>
-		<br />
-		Est. <span class="lighted"> <strong> {totalSpend} </strong> </span>
-	</div>
-{:else}
+<div class="cell">
 	{$t('history.currentPity')} &nbsp; <strong class="star5"> {pity5} </strong> &nbsp; - &nbsp;
 	<strong class="star4"> {pity4} </strong>
 	<br />
 	{$t('history.totalPull')} <span class="lighted"> <strong> {dataLength} </strong> </span>
-	<br />
+</div>
+<div class="cell">
 	{$t('history.totalSpend')}
 	<strong><span class="lighted"> {dataLength * 160}</span> {$t('shop.item.primogem')}</strong>
-	~
-	<span class="lighted"> <strong> {totalSpend} </strong> </span>
-{/if}
+	<br />
+	Est. <span class="lighted"> <strong> {totalSpend} </strong> </span>
+</div>
 
 <style>
 	.star4,

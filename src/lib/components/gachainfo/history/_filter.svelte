@@ -4,7 +4,6 @@
 	import { t } from 'svelte-i18n';
 
 	export let filterBy;
-	export let v2 = false;
 
 	let showTableFilterOption = false;
 	$: filterTxt = isNaN(filterBy)
@@ -18,7 +17,7 @@
 	};
 </script>
 
-<div class="table-filter" class:v2>
+<div class="table-filter v2">
 	<span class="filter-selected" on:click={() => (showTableFilterOption = !showTableFilterOption)}>
 		{$t('history.filterTxt')} / {filterTxt}
 		<i class="gi-caret-{showTableFilterOption ? 'up' : 'down'}" />

@@ -2,7 +2,6 @@
 	import { t } from 'svelte-i18n';
 
 	export let banner;
-	export let v2;
 
 	$: wpLegends = ['win', 'lose', 'guaranteed', 'selected'];
 	$: chLegends = ['win', 'lose', 'guaranteed'];
@@ -10,7 +9,7 @@
 </script>
 
 {#if !['beginner', 'standard'].includes(banner)}
-	<div class="legend" class:v2>
+	<div class="legend v2">
 		{#each legends as v}
 			<div class="item">
 				<span class="star5">

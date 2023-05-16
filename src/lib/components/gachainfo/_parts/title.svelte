@@ -5,7 +5,6 @@
 	export let bannerTitle = '';
 	export let banner = '';
 	export let vision = '';
-	export let tplVersion = '';
 
 	const highlightBannerName = (bannerName, vision = '') => {
 		const splited = bannerName.split(' ');
@@ -20,10 +19,8 @@
 		<span> {$t('history.title')}</span>
 	</h1>
 {:else if banner === 'standard'}
-	<h1 class="standard" class:v2={tplVersion === 'v2'}>
-		{#if tplVersion === 'v2'}
-			<img src={$assets['brand.png']} alt="Icon" crossorigin="anonymous" />
-		{/if}
+	<h1 class="standard v2">
+		<img src={$assets['brand.png']} alt="Icon" crossorigin="anonymous" />
 		<span>
 			{$t('wish.banner.standard')} "{@html highlightBannerName(
 				$t('wish.banner.name.wanderlust'),
@@ -32,10 +29,8 @@
 		</span>
 	</h1>
 {:else}
-	<h1 class={banner} class:v2={tplVersion === 'v2'}>
-		{#if tplVersion === 'v2'}
-			<img src={$assets['brand.png']} alt="Icon" crossorigin="anonymous" />
-		{/if}
+	<h1 class="{banner} v2">
+		<img src={$assets['brand.png']} alt="Icon" crossorigin="anonymous" />
 		<span>
 			{#if banner !== 'beginner'}
 				{$t(`wish.banner.${banner}`, { default: 'UnReleased Banner' })}

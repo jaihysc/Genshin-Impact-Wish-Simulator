@@ -11,7 +11,6 @@
 	import Toast from '$lib/components/utility/Toast.svelte';
 
 	export let banner;
-	export let v2 = false;
 
 	let showModal = false;
 	let showToast = false;
@@ -59,7 +58,7 @@
 	<Toast on:close={() => (showToast = false)}>{$t('history.resetSuccess')}</Toast>
 {/if}
 
-<button class="reset" class:v2 on:click={reset}>
+<button class="reset v2" on:click={reset}>
 	<i class="gi-delete" />
 	{$t('history.resetButton')}
 </button>

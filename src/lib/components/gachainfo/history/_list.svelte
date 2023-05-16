@@ -1,13 +1,11 @@
 <script>
 	import { browser } from '$app/environment';
-	import { afterUpdate, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import OverlayScrollbars from 'overlayscrollbars';
 	import { pageActive, query } from '$lib/store/stores';
 	import HistoryIDB from '$lib/store/historyIdb';
 	import { getBannerName, getName } from '$lib/helpers/nameText';
 
-	export let v2 = false;
 	export let banner = 'beginner';
 	export let filter = '';
 	export let page = { itemPerPage: 0, activepage: 0 };
@@ -35,14 +33,9 @@
 		query.set(getName(bannerName));
 		pageActive.set('previous-banner');
 	};
-
-	afterUpdate(() => {
-		if (v2) return;
-		OverlayScrollbars(table, { sizeAutoCapable: false, className: 'os-theme-light' });
-	});
 </script>
 
-<div class="table" class:v2 bind:this={table}>
+<div class="table v2" bind:this={table}>
 	<div style="min-width: max-content;">
 		<div class="row head">
 			<div class="cell cell0">{$t('history.pity')}</div>

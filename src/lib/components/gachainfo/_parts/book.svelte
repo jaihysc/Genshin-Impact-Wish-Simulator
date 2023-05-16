@@ -1,34 +1,25 @@
 <script>
 	import { getContext } from 'svelte';
-	import { t } from 'svelte-i18n';
 	import { assets } from '$lib/store/stores';
-
-	export let tplVersion;
 
 	let contentWidth;
 	const close = getContext('close-detail');
-	const setTpl = getContext('detail-tpl');
 </script>
 
-{#if tplVersion !== 'v2'}
-	<slot />
-{:else}
-	<div class="content-container">
-		<button class="old" on:click={() => setTpl('v1')}> {$t('history.olderLayout')}</button>
-		<div class="wrapper">
-			<div
-				class="book"
-				bind:clientWidth={contentWidth}
-				style="--content-width:{contentWidth}px; background-image:url({$assets['book.webp']})"
-			>
-				<button class="tutup" on:click={close} />
-				<div class="book-content">
-					<slot />
-				</div>
+<div class="content-container">
+	<div class="wrapper">
+		<div
+			class="book"
+			bind:clientWidth={contentWidth}
+			style="--content-width:{contentWidth}px; background-image:url({$assets['book.webp']})"
+		>
+			<button class="tutup" on:click={close} />
+			<div class="book-content">
+				<slot />
 			</div>
 		</div>
 	</div>
-{/if}
+</div>
 
 <style>
 	.content-container {
@@ -52,19 +43,6 @@
 		position: absolute;
 		top: 6%;
 		right: 2%;
-	}
-
-	.old {
-		position: absolute;
-		z-index: +2;
-		bottom: 5%;
-		left: 50%;
-		transform: translateX(-50%) translateY(200%);
-		text-decoration: underline;
-		transition: all 0.2s;
-	}
-	.old:hover {
-		color: goldenrod;
 	}
 
 	.book {

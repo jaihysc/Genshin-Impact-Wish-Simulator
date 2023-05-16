@@ -10,18 +10,15 @@
 	import SelectBanner from './_select-banner.svelte';
 	import Report from './_report.svelte';
 	import Filter from './_filter.svelte';
-	import Reset from './_reset.svelte';
 	import Legends from './_legends.svelte';
 	import Pagination from './_pagination.svelte';
 	import List from './_list.svelte';
 	import Title from '../_parts/title.svelte';
 
-	export let tplVersion;
-
 	let dataLength = 0;
 	let filteredDataLength = 0;
 	let activepage = 1;
-	let itemPerPage = tplVersion === 'v2' ? 5 : 6;
+	let itemPerPage = 5;
 	let filterBy = 'All';
 
 	$: banner = $bannerList.find((v, i) => i === $bannerActive).type;
@@ -66,62 +63,22 @@
 	</title>
 </svelte:head>
 
-{#if tplVersion === 'v2'}
-	<Title banner="history" />
-	<SelectBanner v2 {banner} />
-	<div class="container">
-		<p class="v2">{$t('history.disclaimer')}</p>
-		<div class="row">
-			<Report {dataLength} {banner} v2 />
-			<Filter {filterBy} v2 />
-		</div>
-		<List v2 {banner} filter={filterBy} page={{ activepage, itemPerPage }} />
+<Title banner="history" />
+<SelectBanner {banner} />
+<div class="container">
+	<p class="v2">{$t('history.disclaimer')}</p>
+	<div class="row">
+		<Report {dataLength} {banner} />
+		<Filter {filterBy} />
 	</div>
-	<Legends {banner} v2 />
-	<Pagination v2 dataLength={filteredDataLength} {itemPerPage} {activepage} />
-{:else}
-	<SelectBanner {banner} />
-	<p>{$t('history.disclaimer')}</p>
-
-	<div class="info">
-		<div class="left">
-			<Report {dataLength} {banner} />
-		</div>
-		<div class="right">
-			<Reset {banner} />
-			<Filter {filterBy} />
-		</div>
-	</div>
-
 	<List {banner} filter={filterBy} page={{ activepage, itemPerPage }} />
-	<Legends {banner} />
-	<Pagination dataLength={filteredDataLength} {itemPerPage} {activepage} />
-{/if}
+</div>
+<Legends {banner} />
+<Pagination dataLength={filteredDataLength} {itemPerPage} {activepage} />
 
 <style>
 	p {
 		padding: 1rem 0;
-	}
-
-	.info {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-		margin-bottom: 0.5rem;
-	}
-	@media screen and (max-width: 450px) {
-		.info {
-			flex-direction: column;
-			width: 100%;
-		}
-		.left {
-			width: 100%;
-		}
-	}
-	.info > .right {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
 	}
 
 	/* V2 */

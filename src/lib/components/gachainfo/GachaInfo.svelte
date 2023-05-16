@@ -1,9 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import { setContext } from 'svelte';
-	import { t } from 'svelte-i18n';
 	import { assets, pageActive } from '$lib/store/stores';
-	import { localConfig } from '$lib/store/localstore';
 	import browserState from '$lib/helpers/browserState';
 	import { playSfx } from '$lib/helpers/audio/audio.svelte';
 	import Book from './_parts/book.svelte';
@@ -18,36 +16,18 @@
 		playSfx('close');
 	};
 	setContext('close-detail', handleCLose);
-
-	let tplVersion = localConfig.get('detail-tpl') || 'v2';
-	const setTpl = (v) => {
-		localConfig.set('detail-tpl', v);
-		tplVersion = v;
-	};
-	setContext('detail-tpl', setTpl);
 </script>
 
 <section transition:fade={{ duration: 200 }}>
-	{#if tplVersion !== 'v2'}
-		<div class="header">
-			<button on:click={handleCLose}>
-				<i class="gi-reply" />
-			</button>
-
-			<button class="switchNewTpl" on:click={() => setTpl('v2')}> {$t('history.switchv2')} </button>
-		</div>
-	{/if}
-
 	<div
-		class="content-details {page}"
-		class:v2={tplVersion === 'v2'}
-		style={tplVersion === 'v2' ? `background-image:url(${$assets['wish-background.webp']})` : ''}
+		class="content-details {page} v2"
+		style={`background-image:url(${$assets['wish-background.webp']})`}
 	>
-		<Book {tplVersion}>
+		<Book>
 			{#if page === 'details'}
-				<MainDetails {tplVersion} />
+				<MainDetails/>
 			{:else if page === 'history'}
-				<MainHistory {tplVersion} />
+				<MainHistory/>
 			{/if}
 		</Book>
 	</div>

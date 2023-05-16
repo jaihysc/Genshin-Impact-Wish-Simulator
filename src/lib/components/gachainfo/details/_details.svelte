@@ -4,10 +4,8 @@
 	import Description from './_description.svelte';
 	import List from './_list.svelte';
 	import PromotionalV2 from './_promotional-v2.svelte';
-	import Promotional from './_promotional.svelte';
 	import Title from '../_parts/title.svelte';
 
-	export let tplVersion = 'v1';
 	export let data;
 	export let drops;
 
@@ -22,37 +20,30 @@
 	};
 </script>
 
-<Title {banner} {bannerTitle} vision={featured[0]?.vision} {tplVersion} />
+<Title {banner} {bannerTitle} vision={featured[0]?.vision} />
 
-{#if tplVersion === 'v2'}
-	<nav style="background-image: url({$assets['book-select-bg.webp']});">
-		{#if !noPromo}
-			<div class="nav-item" class:active={activeContent === 1}>
-				<button on:click={() => select(1)}> {$t('details.promotional')} </button>
-			</div>
-		{/if}
-		<div class="nav-item" class:active={activeContent === 2}>
-			<button on:click={() => select(2)}> {$t('details.text')} </button>
+<nav style="background-image: url({$assets['book-select-bg.webp']});">
+	{#if !noPromo}
+		<div class="nav-item" class:active={activeContent === 1}>
+			<button on:click={() => select(1)}> {$t('details.promotional')} </button>
 		</div>
-		<div class="nav-item" class:active={activeContent === 3}>
-			<button on:click={() => select(3)}> {$t('details.itemlist')} </button>
-		</div>
-	</nav>
-	<div class="content">
-		{#if activeContent === 1}
-			<PromotionalV2 data={{ featured, items, banner, bannerTitle }} />
-		{:else if activeContent === 2}
-			<Description bannerType={banner} data={items} bannerName={bannerTitle} tplVersion="v2" />
-		{:else if activeContent === 3}
-			<List {drop5star} {drop4star} {drop3star} {banner} tplVersion="v2" />
-		{/if}
+	{/if}
+	<div class="nav-item" class:active={activeContent === 2}>
+		<button on:click={() => select(2)}> {$t('details.text')} </button>
 	</div>
-{:else}
-	<Promotional data={{ featured, items, banner, bannerTitle }} />
-	<Description bannerType={banner} data={items} bannerName={bannerTitle} />
-	<br />
-	<List {drop5star} {drop4star} {drop3star} {banner} />
-{/if}
+	<div class="nav-item" class:active={activeContent === 3}>
+		<button on:click={() => select(3)}> {$t('details.itemlist')} </button>
+	</div>
+</nav>
+<div class="content">
+	{#if activeContent === 1}
+		<PromotionalV2 data={{ featured, items, banner, bannerTitle }} />
+	{:else if activeContent === 2}
+		<Description bannerType={banner} data={items} bannerName={bannerTitle} />
+	{:else if activeContent === 3}
+		<List {drop5star} {drop4star} {drop3star} {banner} />
+	{/if}
+</div>
 
 <style>
 	nav {

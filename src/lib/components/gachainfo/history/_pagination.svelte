@@ -4,7 +4,6 @@
 	export let dataLength;
 	export let activepage;
 	export let itemPerPage;
-	export let v2 = false;
 
 	const navigate = getContext('navigation');
 	const previous = () => {
@@ -16,21 +15,13 @@
 	};
 </script>
 
-<div class="pagination" class:v2>
+<div class="pagination v2">
 	<button class="prev" disabled={activepage === 1} on:click={previous}>
-		{#if v2}
-			<span class="left arrow" />
-		{:else}
-			<i class="gi-angle-left" />
-		{/if}
+		<span class="left arrow" />
 	</button>
 	<span class="active">{activepage}</span>
 	<button class="next" disabled={!(dataLength > activepage * itemPerPage)} on:click={next}>
-		{#if v2}
-			<span class="right arrow" />
-		{:else}
-			<i class="gi-angle-right" />
-		{/if}
+		<span class="right arrow" />
 	</button>
 </div>
 

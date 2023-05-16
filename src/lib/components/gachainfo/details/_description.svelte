@@ -3,7 +3,6 @@
 	import { APP_TITLE } from '$lib/env';
 
 	export let bannerType;
-	export let tplVersion = 'v1';
 	export let bannerName = '';
 	export let data = [];
 
@@ -89,10 +88,8 @@
 	</title>
 </svelte:head>
 
-<div class="description" class:v2={tplVersion === 'v2'}>
-	{#if tplVersion === 'v2'}
-		<h2><span>{$t('details.wishDetails')} </span> <span class="line" /></h2>
-	{/if}
+<div class="description v2">
+	<h2><span>{$t('details.wishDetails')} </span> <span class="line" /></h2>
 
 	{#if bannerType === 'beginner'}
 		<h3>{$t('details.beginnerInfo')}</h3>

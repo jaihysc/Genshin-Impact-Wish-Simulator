@@ -4,7 +4,6 @@
 	export let drop5star;
 	export let drop4star;
 	export let drop3star;
-	export let tplVersion = 'v1';
 	export let banner = '';
 
 	let value5star;
@@ -22,7 +21,7 @@
 	}
 </script>
 
-<div class="list" class:v2={tplVersion === 'v2'}>
+<div class="list v2">
 	<h4>{$t('details.itemWishFor')}</h4>
 	<h3 class="star5">
 		<div class="star">
