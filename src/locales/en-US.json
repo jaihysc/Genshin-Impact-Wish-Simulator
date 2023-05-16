@@ -359,20 +359,6 @@
 		"resetButton": "Reset Now",
 		"resetPrompt": "Are You sure to clear <strong> All Data </strong> and restore to default ?",
 		"resetDetail": "It also remove your History, Pity Calculation, Balance and all items from Inventory.",
-		"resetSuccess": "Reset Successful",
-		"removeAds": "Remove Ads",
-		"removeKey": "Remove AdKey",
-		"removeKeyConfirm": "Are You sure to remove the current adKey ? You need to enter a new key to remove the future ads!",
-		"getNewKey": "Get a new one Here!",
-		"noKey": "Don't have a key?",
-		"verifyFail": "Failed to verifying AdKey, Check your Connection !",
-		"invalidKey": "Your key is invalid",
-		"keyExpired1": "Expired Key!",
-		"keyExpired2": "Your key: \"{key}\" has expired since {date}!",
-		"adFreeUser": "You're enjoying Simulator Without Ads !",
-		"inputKeyPlaceholder": "Enter Key",
-		"inputKeyTxt": "Input the Key to Remove Ads !",
-		"checkingKey": "Verifying Stored AdKey",
-		"authorNotes": "* I need to say sorry about the ads. Actually I don't want to ruin your wishing experience, but I don't have any Team or Sponsor to keep this app alive. If you don't want to spend anythings, You can still turn on the Ad Blocker or just use custom DNS, I will not forbid you."
+		"resetSuccess": "Reset Successful"
 	}
 }

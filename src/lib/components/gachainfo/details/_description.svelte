@@ -1,7 +1,6 @@
 <script>
 	import { t, json } from 'svelte-i18n';
 	import { APP_TITLE } from '$lib/env';
-	import Ads from '../../utility/Iklan.svelte';
 
 	export let bannerType;
 	export let tplVersion = 'v1';
@@ -95,8 +94,6 @@
 		<h2><span>{$t('details.wishDetails')} </span> <span class="line" /></h2>
 	{/if}
 
-	<Ads type="banner" />
-
 	{#if bannerType === 'beginner'}
 		<h3>{$t('details.beginnerInfo')}</h3>
 	{:else if ['events', 'weapons'].includes(bannerType)}
@@ -172,7 +169,6 @@
 	{#if ['events', 'weapons'].includes(bannerType)}
 		<p>{$t('details.alert', { values: { wishName: $t(`wish.banner.${bannerType}`) } })}</p>
 	{/if}
-	<Ads type="banner" />
 </div>
 
 <style>

@@ -15,12 +15,6 @@
 		<div class="menu-item" class:active={activeContent === 'updates'}>
 			<button on:click={() => selectMenu('updates')}> {$t('menu.updates')} </button>
 		</div>
-
-		{#if !($isPWA && $isMobile)}
-			<div class="menu-item" class:active={activeContent === 'removeAds'}>
-				<button on:click={() => selectMenu('removeAds')}> {$t('menu.removeAds')} </button>
-			</div>
-		{/if}
 	</div>
 </div>
 

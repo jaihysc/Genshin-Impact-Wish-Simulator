@@ -359,20 +359,6 @@
 		"resetButton": "Réinitialier maintenant",
 		"resetPrompt": "Voulez-vous vraiment supprimer <strong> Toutes les Données </strong> et restaurer l'état par défaut?",
 		"resetDetail": "Il supprime également l'historique, le calcul de la pity, le solde et tous les éléments de l'inventaire.",
-		"resetSuccess": "Réinitialisation réussie",
-		"removeAds": "Supprimer les publicités",
-		"removeKey": "Supprimer l'AdKey",
-		"removeKeyConfirm": "Are You sure to remove the current adKey ? You need to enter a new key to remove the future ads!",
-		"getNewKey": "Obtenez-en une nouvelle ici !",
-		"noKey": "Vous n'avez pas de clé ?",
-		"verifyFail": "Vérification de l'AdKey échouée, Vérifieez votre connexion !",
-		"invalidKey": "Votre clé est invalide",
-		"keyExpired1": "Clé expirée !",
-		"keyExpired2": "Votre clé: \"{key}\" est expirée depuis le {date}!",
-		"adFreeUser": "Vous profitez du simulateur sans publicités !",
-		"inputKeyPlaceholder": "Entrez la clé",
-		"inputKeyTxt": "Entrez la clé pour supprimer les publicités !",
-		"checkingKey": "Vérification de l'AdKey enregistrée",
-		"authorNotes": "* Je suis désolé pour les publicités. En fait, je ne veux pas gâcher votre expérience de navigation, mais je n'ai pas d'équipe ou de sponsor pour maintenir cette application en vie. Si vous ne voulez rien dépenser, vous pouvez toujours activer le bloqueur de publicité ou simplement utiliser des DNS personnalisés, je ne vous l'interdirai pas."
+		"resetSuccess": "Réinitialisation réussie"
 	}
 }

@@ -25,7 +25,6 @@
 	import metaPicture from '../../screenshot/meta-picture.jpg';
 	import '../app.css';
 	import Loader from '$lib/components/utility/Loader.svelte';
-	import Iklan from '$lib/components/utility/Iklan.svelte';
 	import { IDBUpdater } from '$lib/helpers/IDBUpdater';
 
 	let innerHeight;
@@ -148,10 +147,6 @@
 
 	{#if !dev}
 		<link rel="manifest" href="/appmanifest.json" />
-	{/if}
-
-	{#if isloaded && showAd}
-		<Iklan head />
 	{/if}
 </svelte:head>
 

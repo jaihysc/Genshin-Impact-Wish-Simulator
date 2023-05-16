@@ -10,7 +10,6 @@
 	import Options from './OptionMenu.svelte';
 	import Updates from './Updates.svelte';
 	import Sidebar from './_sidebar.svelte';
-	import RemoveAds from './RemoveAds.svelte';
 
 	let activeContent = 'options';
 
@@ -43,8 +42,6 @@
 				<Options />
 			{:else if activeContent === 'updates'}
 				<Updates />
-			{:else if activeContent === 'removeAds'}
-				<RemoveAds />
 			{/if}
 
 			{#if $isMobile && !$mobileMode}

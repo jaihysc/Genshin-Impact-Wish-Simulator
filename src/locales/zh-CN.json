@@ -359,20 +359,6 @@
 		"resetButton": "现在重置",
 		"resetPrompt": "您确定清除<strong>所有数据</strong>并恢复默认吗？",
 		"resetDetail": "它还会从仓库中删除您的历史记录、垫数计算、余额和所有项目。",
-		"resetSuccess": "已成功重置",
-		"removeAds": "移除广告",
-		"removeKey": "移除赞助码",
-		"removeKeyConfirm": "您确定要删除当前的赞助码吗？ 之后您需要输入一个新的赞助码才能关闭未来出现的的广告！",
-		"getNewKey": "在这里搞一个新的！",
-		"noKey": "没有赞助码？",
-		"verifyFail": "无法验证赞助码，请检查您的网络连接！",
-		"invalidKey": "您的赞助码无效",
-		"keyExpired1": "Expired Key!",
-		"keyExpired2": "Your key: \"{key}\" has expired since {date}!",
-		"adFreeUser": "您正在以无广告模式体验祈愿模拟器！",
-		"inputKeyPlaceholder": "输入赞助码",
-		"inputKeyTxt": "请输入赞助码以移除广告",
-		"checkingKey": "正在检查目前存储的赞助码",
-		"authorNotes": "* 我需要对植入广告行为表示歉意。实际上我也不想破坏您的操作体验，但我没有任何团队或赞助商来维持这个应用的运营。如果你不想花钱的话，你仍旧可以通过启用广告拦截插件或者自定义DNS，我不会对其进行限制。"
+		"resetSuccess": "已成功重置"
 	}
 }
