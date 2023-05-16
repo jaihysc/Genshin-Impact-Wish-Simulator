@@ -14,6 +14,9 @@ const updateNameFromIDB = async (before, after) => {
 export const IDBUpdater = async () => {
 	updateNameFromIDB('sagonomiya-kokomi', 'sangonomiya-kokomi');
 	updateNameFromIDB('alhaitam', 'alhaitham');
-	await deleteDB('workbox-expiration');
+	try {
+		await deleteDB('workbox-expiration');
+	}
+	catch (e) {}
 };
 

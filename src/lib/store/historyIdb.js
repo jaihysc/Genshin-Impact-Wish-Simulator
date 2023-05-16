@@ -16,20 +16,61 @@ if (browser) {
 	});
 }
 
+// Memory-based replacement for IndexedDB
+let memoryDB = [];
+
 const HistoryIDB = {
 	async historyCount() {
-		return (await IndexedDB).count(storeName);
+		try {
+			return (await IndexedDB).count(storeName);
+		}
+		catch (e) {
+			return memoryDB.length();
+		}
 	},
 	async getList(banner) {
-		return (await IndexedDB).getAllFromIndex(storeName, 'banner', banner);
+		try {
+			return (await IndexedDB).getAllFromIndex(storeName, 'banner', banner);
+		}
+		catch (e) {
+			let list = [];
+			for (const entry of memoryDB) {
+				if (entry.banner === banner) {
+					list.push(entry);
+				}
+			}
+			return list;
+		}
 	},
 
 	async countItem(name) {
-		return (await IndexedDB).countFromIndex(storeName, 'name', name);
+		try {
+			return (await IndexedDB).countFromIndex(storeName, 'name', name);
+		}
+		catch (e) {
+			let count = 0;
+			for (const entry of memoryDB) {
+				if (entry.name === name) {
+					++count;
+				}
+			}
+			return count;
+		}
 	},
 
 	async getByName(name) {
-		return (await IndexedDB).getAllFromIndex(storeName, 'name', name);
+		try {
+			return (await IndexedDB).getAllFromIndex(storeName, 'name', name);
+		}
+		catch (e) {
+			let list = [];
+			for (const entry of memoryDB) {
+				if (entry.name === name) {
+					list.push(entry);
+				}
+			}
+			return list;
+		}
 	},
 
 	async resetHistory(banner) {
@@ -39,23 +80,56 @@ const HistoryIDB = {
 			keys.forEach((key) => idb.delete(storeName, key));
 			return 'success';
 		} catch (e) {
-			return 'failed';
+			let newMemoryDB = [];
+			for (const entry of memoryDB) {
+				if (entry.banner !== banner) {
+					newMeoryDB.push(entry);
+				}
+			}
+			memoryDB = newMemoryDB;
+			return 'success';
 		}
 	},
 	async clearIDB() {
-		return (await IndexedDB).clear(storeName);
+		try {
+			return (await IndexedDB).clear(storeName);
+		}
+		catch (e) {
+			memoryDB.clear();
+		}
 	},
 	async getAllHistories() {
-		return (await IndexedDB).getAll(storeName);
+		try {
+			return (await IndexedDB).getAll(storeName);
+		}
+		catch (e) {
+			return memoryDB;
+		}
 	},
 	async addHistory(data) {
 		// eslint-disable-next-line no-prototype-builtins
 		if (!data.hasOwnProperty('banner')) return;
-		return (await IndexedDB).put(storeName, data);
+		try {
+			return (await IndexedDB).put(storeName, data);
+		}
+		catch (e) {
+			memoryDB.push(data);
+		}
 	},
 	async delete(id) {
 		if (!id) return;
-		return (await IndexedDB).delete(storeName, id);
+		try {
+			return (await IndexedDB).delete(storeName, id);
+		}
+		catch (e) {
+			let newMemoryDB = [];
+			for (const entry of memoryDB) {
+				if (entry !== id) {
+					newMeoryDB.push(entry);
+				}
+			}
+			memoryDB = newMemoryDB;
+		}
 	}
 };
 
