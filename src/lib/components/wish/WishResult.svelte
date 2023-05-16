@@ -132,7 +132,6 @@
 </script>
 
 <div class="wish-result" style="background-image: url({splashBG});">
-	<div class="uid">WishSimulator.App</div>
 	<img
 		src={$assets[`genshin-logo${isYuanshen ? '-cn' : ''}.webp`]}
 		alt="genshin logo"
@@ -666,7 +665,7 @@
 		transform: scale(0.9);
 	}
 
-	:global(.preview) .uid {
+	:global(.preview) {
 		position: fixed;
 		left: 1rem;
 		bottom: 1rem;
@@ -674,8 +673,7 @@
 		color: #fff;
 		text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.7);
 	}
-	.logo,
-	.uid {
+	.logo {
 		display: none;
 		transition: all 0.1.5s;
 		z-index: 999;

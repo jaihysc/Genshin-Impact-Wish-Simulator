@@ -167,14 +167,6 @@
 	{#if !$isLoading && isloaded}
 		<slot />
 	{/if}
-	<a
-		href="/"
-		on:click|preventDefault={() => window.location.replace('/')}
-		class="uid"
-		title="Try Your Luck by this Simulator"
-	>
-		WishSimulator.App
-	</a>
 
 	<img
 		src={$assets[`genshin-logo${isYuanshen ? '-cn' : ''}.webp`]}
@@ -243,28 +235,6 @@
 		visibility: hidden;
 	}
 
-	.uid {
-		display: block;
-		position: fixed;
-		bottom: 0px;
-		right: 2em;
-		z-index: 9999;
-		color: #fff;
-		text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.7);
-		font-family: Roboto, sans-serif;
-		pointer-events: none;
-	}
-
-	.mobile .uid {
-		right: 5%;
-	}
-
-	.preview .uid {
-		pointer-events: unset;
-		right: unset;
-		left: 1rem;
-		bottom: 1rem;
-	}
 	.logo {
 		display: none;
 	}

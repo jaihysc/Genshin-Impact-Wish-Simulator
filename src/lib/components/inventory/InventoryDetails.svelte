@@ -74,7 +74,6 @@
 			<i class="gi-close" />
 		</button>
 
-		<div class="uid">WishSimulator.App</div>
 		<OutfitToggle charName={name} />
 
 		<div class="splatter" style={splatterStyle}>
@@ -275,8 +274,7 @@
 		display: inline-block;
 	}
 
-	.detail,
-	.uid {
+	.detail {
 		color: #fff;
 		position: fixed;
 		width: 100%;
@@ -290,13 +288,6 @@
 	}
 	span.count {
 		font-size: larger;
-	}
-
-	.uid {
-		left: unset;
-		right: 0;
-		width: fit-content;
-		display: none;
 	}
 
 	.preview .uid {
