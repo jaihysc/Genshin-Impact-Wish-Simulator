@@ -73,7 +73,7 @@
 
 	const saveHandler = () => {
 		playSfx();
-		saveAs(blob, `WishSimulator.App - ${new Date().toLocaleString()}.png`);
+		saveAs(blob, `WishSimulator - ${new Date().toLocaleString()}.png`);
 		addFunds();
 	};
 

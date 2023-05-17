@@ -65,7 +65,7 @@
 	mountLocale();
 	onMount(() => {
 		const isCDNHost = $page.url.host.includes('cdn.');
-		if (isCDNHost) return window.location.replace('https://wishsimulator.app/');
+		if (isCDNHost) return window.location.replace(HOST);
 		if (path[1] && !isPathValid) return window.location.replace('/');
 
 		const url = new URL(window.location.href);
