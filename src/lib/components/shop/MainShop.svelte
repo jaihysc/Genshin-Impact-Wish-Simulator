@@ -18,7 +18,6 @@
 	import PaimonBargains from './PaimonBargains.svelte';
 	import Recomended from './Recomended.svelte';
 	import GenesisCrystal from './GenesisCrystal.svelte';
-	import Donate from './Donate.svelte';
 
 	const random = (min, max) => {
 		min = Math.ceil(min);
@@ -138,8 +137,6 @@
 		<title>{$t('shop.recomendedHeading')} | {title}</title>
 	{:else if activeShop === 'outfits'}
 		<title>{$t('outfit.heading')} | {title}</title>
-	{:else if activeShop === 'donate'}
-		<title>Donate | {title}</title>
 	{:else}
 		<title>{$t('shop.paimonHeading')} | {title}</title>
 	{/if}
@@ -214,10 +211,6 @@
 					<!-- Characters Outfits -->
 				{:else if activeShop === 'outfits'}
 					<CharacterOutfits {recentlyBuyIndex} />
-
-					<!-- Donate -->
-				{:else if activeShop === 'donate'}
-					<Donate />
 
 					<!-- PAIMON BARGAINS -->
 				{:else if activeShop === 'paimon-bargains'}

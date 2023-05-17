@@ -81,17 +81,6 @@
 					{$t('shop.crystalTopup')}
 				</span>
 			</a>
-			<a
-				href="#donate"
-				class="link"
-				class:active={activeShop === 'donate'}
-				on:click|preventDefault={() => handleClick('donate')}
-			>
-				<span>
-					<i class="gi-companion" />
-					{$t('donate')}
-				</span>
-			</a>
 		</div>
 	</div>
 {/if}

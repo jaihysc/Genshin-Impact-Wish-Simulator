@@ -54,11 +54,7 @@
 				<span />
 			</button>
 		{/if}
-		{#if activeShop === 'donate'}
-			<span> Thank you for every donation you have given to me, I realy appreciate it.</span>
-		{:else}
-			<span> {$t('shop.noLimitTime')} </span>
-		{/if}
+		<span> {$t('shop.noLimitTime')} </span>
 	</div>
 	<div class="fates">
 		{#if ['genesis', 'outfits', 'recomended'].includes(activeShop)}
