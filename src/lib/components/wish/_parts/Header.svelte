@@ -1,5 +1,4 @@
 <script>
-	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { browser } from '$app/environment';
@@ -10,7 +9,6 @@
 	import EpitomizedButton from '../epitomizedPath/EpitomizedButton.svelte';
 	import EpitomizedModal from '../epitomizedPath/EpitomizedModal.svelte';
 
-	import { API_KEY, CHATROOM } from '$lib/env';
 	import { playSfx } from '$lib/helpers/audio/audio.svelte';
 	import browserState from '$lib/helpers/browserState';
 	import {
@@ -57,8 +55,6 @@
 		showMenu = !showMenu;
 	};
 
-	const chatToggle = getContext('chatToggle');
-
 	$: fullscreen = browser ? $viewportHeight === window.screen.height : false;
 	const handleFullscreen = () => {
 		if (!fullscreen) {
@@ -88,11 +84,6 @@
 			<button class="help" on:click={handleMenu} title="Setting" aria-label="Setting">
 				<i class="gi-help" />
 			</button>
-			{#if CHATROOM && API_KEY}
-				<button class="chat" on:click={chatToggle} title="Chats" aria-label="Chats">
-					<i class="gi-chat" />
-				</button>
-			{/if}
 			{#if !$isPWA || !$isMobile}
 				<button
 					class="fullscreen"
@@ -187,16 +178,11 @@
 		height: 1.7rem;
 	}
 
-	.fullscreen,
-	.chat {
+	.fullscreen {
 		border-color: transparent;
 		transform: scale(1.3);
 		width: 1.3rem;
 		height: 1.3rem;
-	}
-
-	.chat {
-		border-radius: 100%;
 	}
 
 	.bg {

@@ -6,7 +6,6 @@
 	import { getContext, onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { CHATROOM } from '$lib/env';
 	import { playSfx } from '$lib/helpers/audio/audio.svelte';
 	import {
 		pageActive,
@@ -34,7 +33,6 @@
 	let Obtained;
 	let WelkinCheckin;
 	let setBannerVersionAndPhase;
-	let Chats;
 
 	const importChunks = async () => {
 		// Splitting Chunks
@@ -44,9 +42,6 @@
 		ShopSection = (await import('$lib/components/shop/MainShop.svelte')).default;
 		Obtained = (await import('$lib/components/utility/Obtained.svelte')).default;
 		WelkinCheckin = (await import('$lib/components/utility/WelkinCheckin.svelte')).default;
-
-		if (!CHATROOM) return;
-		Chats = (await import('$lib/components/chat/MainChat.svelte')).default;
 	};
 
 	const importHelper = async () => {
@@ -156,16 +151,6 @@
 	};
 	setContext('bgToggle', bgToggle);
 
-	// ChatRoom
-	let chatLoaded = false; // initial load
-	let showChat = false; // toggle hide-show
-	const chatToggle = () => {
-		chatLoaded = true;
-		showChat = !showChat;
-		playSfx(!showChat ? 'click' : 'close');
-	};
-	setContext('chatToggle', chatToggle);
-
 	onMount(async () => {
 		await importHelper();
 		animateBG();
@@ -206,9 +191,6 @@
 {/if}
 <!-- Obtained Items End -->
 
-{#if CHATROOM && chatLoaded}
-	<svelte:component this={Chats} show={showChat} />
-{/if}
 <svelte:component this={WelkinCheckin} show={welkinCheckin} />
 
 {#if isAnimatedBG}
