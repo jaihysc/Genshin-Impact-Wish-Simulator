@@ -1,6 +1,6 @@
 <script>
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, scale } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import OverlayScrollbars from 'overlayscrollbars';
 	import { playSfx } from '$lib/helpers/audio/audio.svelte';
@@ -46,7 +46,10 @@
 		transition:fade={{ duration: 80 }}
 		on:click={dimiss}
 	>
-		<div class="modal-content" class:wide on:click|stopPropagation>
+		<div
+			class="modal-content" class:wide on:click|stopPropagation
+			transition:scale={{ duration: 80, start: 0.95, opacity: 0.5 }}
+		>
 			<span class="corner top-left" />
 			<span class="corner top-right" />
 			<span class="corner bottom-left" />
@@ -87,7 +90,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		backdrop-filter: blur(2px);
 	}
 
 	.modal-content {
