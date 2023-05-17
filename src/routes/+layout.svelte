@@ -59,7 +59,7 @@
 	setContext('loaded', () => (isloaded = true));
 	setContext('showAd', (show) => (showAd = show));
 
-	const validPaths = ['adkey', 'install', 'privacy-policy', 'screen'];
+	const validPaths = ['screen'];
 	$: isPathValid = validPaths.includes(path[1].toLowerCase());
 
 	mountLocale();

@@ -28,11 +28,8 @@ const clearCacheStorage = async () => {
 };
 
 const factoryReset = async ({ clearCache = false }) => {
-	const adKey = localConfig.get('adKey');
-
 	localStorage.clear();
 	localConfig.set('animatedBG', true);
-	localConfig.set('adKey', adKey);
 	localStorage.setItem('primogem', 1600);
 	locale.update((langID) => {
 		localStorage.setItem('locale', langID);
