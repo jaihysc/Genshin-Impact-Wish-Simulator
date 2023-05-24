@@ -98,9 +98,15 @@
 
 	const videos = [
 		'3star-single.mp4',
+		'3star-splashout.webm',
+		'3star-splashout2.webm',
 		'4star-single.mp4',
+		'4star-splashout.webm',
+		'4star-splashout2.webm',
 		'4star.mp4',
 		'5star-single.mp4',
+		'5star-splashout.webm',
+		'5star-splashout2.webm',
 		'5star.mp4'
 	];
 
