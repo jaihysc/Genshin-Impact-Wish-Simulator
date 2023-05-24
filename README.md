@@ -1,8 +1,12 @@
-# Realistic Genshin Impact Wish Simulator
+# Genshin Impact Wish Simulator
 
-![License](https://badgen.net/github/license/AguzzTN54/Genshin-Impact-Wish-Simulator?icon:github) ![Repo Size](https://img.shields.io/github/repo-size/AguzzTN54/Genshin-Impact-Wish-Simulator?color=fa0) [![CodeFactor](https://www.codefactor.io/repository/github/aguzztn54/genshin-impact-wish-simulator/badge)](https://www.codefactor.io/repository/github/aguzztn54/genshin-impact-wish-simulator) ![Status](https://badgen.net/github/checks/AguzzTN54/Genshin-Impact-Wish-Simulator) ![Code Standard](https://badgen.net/badge/code%20style/standard/f2a) [![Saweria](https://badgen.net/badge/Saweria/AguzzTN54/F96854)](https://saweria.co/AguzzTN54)
+This is a modified version of the [Genshin Impact Wish Simulator](https://github.com/AguzzTN54/Genshin-Impact-Wish-Simulator) by [AguzzTN54](https://github.com/AguzzTN54).
 
-I'm not expert, I can't write clean code, but I try to create this Genshin Impact Wish Simulator. I can claim this is the most Realistic one for web version. However, I still need your feedbacks to improve the wishing experience. If you like this Simulator, please give a star to this repository.
+1. Fix Wish not working in Firefox Private Browsing
+2. Make wish result animations smoother by pre-rendering them
+3. Make pop-up animations smoother
+4. Remove ads
+5. Remove some unnecessary text which takes up the screen
 
 ## Screenshots
 
@@ -29,8 +33,6 @@ I'm not expert, I can't write clean code, but I try to create this Genshin Impac
 #### Shop
 
 ![Buying Welkin](https://user-images.githubusercontent.com/13815468/212980583-7539f527-c6bb-4005-8322-8996b59937fe.gif)
-
-> For more preview, please visit the live version at [https://wishsimulator.app](https://wishsimulator.app)
 
 ---
 
@@ -125,16 +127,6 @@ Then, if you want to serve some assets through cdn, please provide your Github R
 The site will use [jsDelivr](https://www.jsdelivr.com/) free cdn service. You also can use another CDN Service like [Statically](https://statically.io/) and [PageCDN](https://pagecdn.com/) for free or use paid service from Azure, AWS and GCP, but You must to setup the configuration yourself.
 
 \*\* You can still deploy the app without even set the environment variables
-
----
-
-## Contributing
-
-I'm welcome to all contributors! Feel free to [open new Issue](https://github.com/AguzzTN54/Genshin-Impact-Wish-Simulator/issues/new) if you find any problem or just want to give any suggestions.
-
-### Thank You to all Contributors
-
-[![Contributor](https://contrib.rocks/image?repo=AguzzTN54/Genshin-Impact-Wish-Simulator)](https://github.com/AguzzTN54/Genshin-Impact-Wish-Simulator/graphs/contributors)
 
 > **Notes :**
 >
